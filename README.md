@@ -10,3 +10,5 @@ Uses local storage to store user data
 Developed web-application with validation procedures
 
 Uses charts to display weather condition
+
+Note! For the best result weather aplication link compatible with internet explorer and firefox only because it uses google's open API.
