@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
+	<!--This is for template theme-->
+	<link rel="stylesheet" type="text/css" href="theme/demo/css/jquery.mobile.flatui.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+	<!--This is for Chart-->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>
+
+	<!--This is for Google Font-->
+	<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+	<script src="script.js"></script>
+
+	<!--This is Stylesheet of Weather Application-->
+	<link rel="stylesheet" href="css/weather.css">
+
+</head>
+<body>
+	<!--This is For First Page-->
+	<div data-role="page" id="homepage" data-theme="g">
+		<div data-role="header">	
+			<h1>Weather App</h1>
+		</div>
+
+		<!--This is For Menu-->
+		<div class="sidebar">
+			<h2>Menu</h2>
+			<ul>
+				<li><a href="#homepage" style="color:white;">Current Weather</a></li>
+				<li><a href="#forecastpage" style="color:white;">Weather Forecast</a></li>
+				<li><a href="#chartpage" style="color:white;">Weather Chart</a></li>
+				<li><a href="#citypage" style="color:white;">Search City</a></li>
+			</ul>
+		</div>
+		<!--Menu Icon On left Side-->
+		<div class="menuicon">
+			<img src="images/list.png" alt="" class="menu-bar">
+		</div>
+		<!-- Menu End-->
+
+		<div role="main" class="ui-content" id="main">
+			<span id="error"></span> <!-- Error For Geolocation-->
+			<h2 id="cw">Current weather conditions</h2>
+			<div id="weathericon">
+			</div>
+			<div id="weatherinfo">
+			</div>
+		</div>
+		<div data-role="footer">
+			<h3>Footer</h3>
+		</div>
+	</div>
+
+
+
+
+	<!-- This is for Second Page -->
+	<div data-role="page" id="forecastpage" data-theme="g" style="overflow: scroll;">
+		<div data-role="header">
+			<h1 id="header">Get Weather Forecast</h1>
+		</div>
+
+		<!--This is For Menu-->
+		<div class="sidebar">
+			<h2>Menu</h2>
+			<ul>
+				<li><a href="#homepage" style="color:white;">Current Weather</a></li>
+				<li><a href="#forecastpage" style="color:white;">Weather Forecast</a></li>
+				<li><a href="#chartpage" style="color:white;">Weather Chart</a></li>
+				<li><a href="#citypage" style="color:white;">Search City</a></li>
+			</ul>
+		</div>
+		<div class="menuicon">
+			<img src="images/list.png" alt="" class="menu-bar">
+		</div>
+		<!-- Menu End-->
+
+		<div role="main" class="ui-content" id="main" >
+			<span id="error"></span><!-- Error For Geolocation-->
+
+			<span id="error2"></span><!-- Error For Field Cannot be empty.-->
+			<div id="fcontainer">
+				<input type="text" data-clear-btn="true" id="fcity" placeholder="Enter Your City">
+
+				<button id="submitfWeather" >Search City</button>
+			</div>
+			<div id="forecast"></div>
+			<div id="weatherdesc">
+				<table id ="wd" align="center" height="10%">
+				</table> <!-- Table for Week Forecast Data -->
+			</div>
+		</div>
+
+		<div data-role="footer">
+			<h3>Footer</h3>
+		</div>
+	</div>	
+
+
+
+
+
+
+	<!-- This is Third Page -->
+	<div data-role="page" id="chartpage" data-theme="g" style="overflow: scroll;">
+		<div data-role="header">
+			<h1 id="header">Get Weather Forecast</h1>
+		</div>
+
+		<!--This is For Menu-->
+		<div class="sidebar">
+			<h2>Menu</h2>
+			<ul>
+				<li><a href="#homepage" style="color:white;">Current Weather</a></li>
+				<li><a href="#forecastpage" style="color:white;">Weather Forecast</a></li>
+				<li><a href="#chartpage" style="color:white;">Weather Chart</a></li>
+				<li><a href="#citypage" style="color:white;">Search City</a></li>
+			</ul>
+		</div>
+		<div class="menuicon">
+			<img src="images/list.png" alt="" class="menu-bar">
+		</div>
+		<!-- Menu End-->
+
+		<div role="main" class="ui-content" id="main" >
+
+			<div id="ccontainer">
+				<span id="error"></span>
+			</div>
+			<!-- Canvas For Forecast Chart -->
+			<canvas id="myChart" width="10px" height="4px"></canvas>
+		</div>
+
+		<div data-role="footer">
+			<h3>Footer</h3>
+		</div>
+	</div>	
+
+
+	
+
+	<!-- This is for Search City Page -->
+	<div data-role="page" id="citypage" data-theme="g">
+		<div data-role="header">
+			<h1>Get Current Weather</h1>
+		</div>
+
+		<!--This is For Menu-->
+		<div class="sidebar">
+			<h2>Menu</h2>
+			<ul>
+				<li><a href="#homepage" style="color:white;">Current Weather</a></li>
+				<li><a href="#forecastpage" style="color:white;">Weather Forecast</a></li>
+				<li><a href="#chartpage" style="color:white;">Weather Chart</a></li>
+				<li><a href="#citypage" style="color:white;">Search City</a></li>
+			</ul>
+		</div>
+		<div class="menuicon">
+			<img src="images/list.png" alt="" class="menu-bar">
+		</div>
+		<!-- Menu End-->
+
+		<div role="main" class="ui-content" id="main" >
+			<div id="container">
+				<span id="error"></span> <!-- Error For Geolocation-->
+
+				<input type="text" data-clear-btn="true"  id="city" placeholder="Enter Your City">
+				<h3>OR</h3>
+
+				<select name="mycity" id="mycity">
+					<option value="">Select Your City</option>
+				</select>
+
+				<button id="submitWeather" >Search City</button>
+			</div>
+			<div id="cityweathericon"></div>
+			<div id="show">
+			</div>
+		</div>
+		<div data-role="footer">
+			<h3>Footer</h3>
+		</div>
+	</div>	
+</body>
+</html>
